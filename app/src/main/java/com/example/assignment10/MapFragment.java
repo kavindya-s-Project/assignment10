@@ -1,5 +1,9 @@
 package com.example.assignment10;
 
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +19,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
 
 
 public class MapFragment extends Fragment {
@@ -41,12 +46,13 @@ public class MapFragment extends Fragment {
 //                        mark options in map
                         MarkerOptions markerOptions = new MarkerOptions();
                         markerOptions.position(latLng);
+//                        markerOptions.title(address);
                         markerOptions.title(latLng.latitude + " : " + latLng.longitude);
                         googleMap.clear();
 
 //                        Animating zoom marker
                         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
-                                latLng, 10
+                                latLng, 20
                         ));
 
 //                        Add marker on map
@@ -55,8 +61,8 @@ public class MapFragment extends Fragment {
                 });
             }
         });
-
 //        return view
         return view;
     }
+
 }
